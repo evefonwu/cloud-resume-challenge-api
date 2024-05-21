@@ -23,6 +23,7 @@ jobs:
           python-version: "3.8"
 
       - name: Create deployment package
+        shell: bash
         run: |
           pip install pipenv --user
           cd source          
@@ -35,7 +36,7 @@ jobs:
           zip lambda_deployment_package.zip lambda_function.py
 
       - name: Upload lambda deployment package
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: lambda_package
           path: source
@@ -46,7 +47,7 @@ jobs:
 
     steps:
       - name: Download artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: lambda_package
           path: "."
@@ -59,6 +60,7 @@ jobs:
           role-to-assume: arn:aws:iam::637423565134:role/GitHubActionStack-Role-s87653b6TzDn
 
       - name: Update lambda code
+        shell: bash
         run: |
           aws lambda update-function-code --function-name lambda_function --zip-file fileb://lambda_deployment_package.zip
 
@@ -83,6 +85,7 @@ jobs:
           role-to-assume: arn:aws:iam::637423565134:role/GitHubActionStack-Role-s87653b6TzDn
 
       - name: Run smoke test
+        shell: bash
         run: |
           pip install pipenv --user
           cd tests    
