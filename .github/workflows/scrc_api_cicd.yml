@@ -5,6 +5,9 @@ on:
     branches:
       - main
 
+env:
+  GA_IAM_ROLE_ARN: "arn:aws:iam::992382393400:role/GARoleStack-Role-7Tz2mqgECrxo"
+
 permissions:
   id-token: write
   contents: read
@@ -57,7 +60,7 @@ jobs:
         with:
           audience: sts.amazonaws.com
           aws-region: us-east-1
-          role-to-assume: arn:aws:iam::637423565134:role/GitHubActionStack-Role-s87653b6TzDn
+          role-to-assume: ${{ env.GA_IAM_ROLE_ARN }}
 
       - name: Update lambda code
         shell: bash
@@ -82,7 +85,7 @@ jobs:
         with:
           audience: sts.amazonaws.com
           aws-region: us-east-1
-          role-to-assume: arn:aws:iam::637423565134:role/GitHubActionStack-Role-s87653b6TzDn
+          role-to-assume: ${{ env.GA_IAM_ROLE_ARN }}
 
       - name: Run smoke test
         shell: bash

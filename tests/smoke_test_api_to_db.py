@@ -4,6 +4,7 @@ This is the smoke test from API to dynamodb that checks if the API is incrementi
 import boto3
 import botocore
 import requests
+import os 
 
 def increments_count_in_db(api_url):
   # hit the API URL to invoke lambda to create/update item in dynamodb
@@ -26,7 +27,7 @@ def increments_count_in_db(api_url):
 # get the visit count from single source of truth, dynamodb
 def get_db_visit_count():
   dynamodb = boto3.resource('dynamodb')
-  table = dynamodb.Table('MyApplications')
+  table = dynamodb.Table(os.environ("TABLE_NAME"))
   try:
     response = table.get_item(
       Key={
@@ -38,10 +39,9 @@ def get_db_visit_count():
   else:
     count = int(response['Item']['visit_count'])    
     return count
-  
 
 
-api_url = "https://gb6rmxgrgk.execute-api.us-east-1.amazonaws.com/dev"
+api_url = os.environ("API_URL")
 
 increments_count_in_db(api_url)
 

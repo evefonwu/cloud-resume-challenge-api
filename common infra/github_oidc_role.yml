@@ -3,11 +3,11 @@ AWSTemplateFormatVersion: "2010-09-09"
 # This template creates an IAM role, using GitHub OIDC provider, for GitHub Actions to assume.
 
 Parameters:
-  GitHubOrg:
-    Description: Name of GitHub organization/user (case sensitive)
+  GitHubUser:
+    Description: Name of GitHub user (case sensitive)
     Type: String
   OIDCProviderArn:
-    Description: Arn for the GitHub OIDC Provider (Leave empty to create one)
+    Description: ARN for the GitHub OIDC Provider (Leave empty to create one)
     Default: ""
     Type: String
   OIDCAudience:
@@ -38,7 +38,7 @@ Resources:
               StringEquals:
                 token.actions.githubusercontent.com:aud: !Ref OIDCAudience
               StringLike:
-                token.actions.githubusercontent.com:sub: !Sub repo:${GitHubOrg}/*:*
+                token.actions.githubusercontent.com:sub: !Sub repo:${GitHubUser}/*:*
       # permissions policies attached to this role
       Policies:
         - PolicyName: GitHubActionsPermissions
