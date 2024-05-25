@@ -88,8 +88,8 @@ Resources:
         Types:
           - REGIONAL
 
-  # PassthroughBehavior allows body of lambda's response through
-  myApiRootRoutePostMethod: # Resource:/ HTTP Method: POST
+  # Resource:/ HTTP Method: POST
+  myApiRootRoutePostMethod:
     Type: AWS::ApiGateway::Method
     Properties:
       AuthorizationType: NONE
@@ -121,7 +121,6 @@ Resources:
         - Endpoint: !Ref SubscriberEndpoint
           Protocol: email
 
-  # TODO: updated policy, test!
   mySNSAccessPolicy:
     Type: AWS::SNS::TopicPolicy
     Properties:

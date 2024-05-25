@@ -27,7 +27,7 @@ def increments_count_in_db(api_url):
 # get the visit count from single source of truth, dynamodb
 def get_db_visit_count():
   dynamodb = boto3.resource('dynamodb')
-  table = dynamodb.Table(os.environ("TABLE_NAME"))
+  table = dynamodb.Table("MyApplications")
   try:
     response = table.get_item(
       Key={
