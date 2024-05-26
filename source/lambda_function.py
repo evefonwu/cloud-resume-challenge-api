@@ -6,9 +6,7 @@ import botocore
 client = boto3.client('dynamodb')
 
 DYNAMODB_TABLE_NAME = "MyApplications"  
-CORS_ALLOWED_ORIGIN = "*" 
-
-#https://resume.evefonwu.com" 
+CORS_ALLOWED_ORIGIN = "https://resume.evefonwu.com" #"*"
 
 def lambda_handler(event,context): 
     updatedCount = 0
@@ -60,6 +58,3 @@ def lambda_handler(event,context):
 
     #print(response)
     return response
-
-# in dev:
-# lambda_handler({}, {})
