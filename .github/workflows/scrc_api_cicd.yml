@@ -1,4 +1,4 @@
-name: cicd-api
+name: Integrate and deploy API backend application changes
 
 on:
   push:
