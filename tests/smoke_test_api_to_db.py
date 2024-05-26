@@ -41,7 +41,7 @@ def get_db_visit_count():
     return count
 
 
-api_url = os.environ("API_URL")
+api_url = os.environ.get("API_URL")
 
 increments_count_in_db(api_url)
 
