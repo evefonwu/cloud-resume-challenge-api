@@ -1,12 +1,11 @@
-# Updated Cloud Resume Challenge repos
-
-Updated previously completed Cloud Resume Challenge to remove static values and use GitHub Action Secrets instead for values. Created new AWS account and re-deployed to new infrastructure resources.
-
-[API repo](https://github.com/xxx) and [Client repo](https://github.com/xxx).
-
-# Cloud Resume Challenge: API
+# Cloud Resume Challenge
 
 This is the **API** of the **_Cloud Resume Challenge_**
+
+UPDATE: Updated previously completed Cloud Resume Challenge to use GitHub Action Secrets instead for values such as the API URL and GitHub Action OIDC ARN.
+
+- [API repo](https://github.com/cloud-resume-challenge-api)
+- [Client repo](https://github.com/cloud-resume-challenge-client)
 
 ## Project Overview
 
@@ -37,16 +36,16 @@ I built this project leveraging the following technologies and AWS services:
 
 - **Availability, Reliability**
 
-  - Managed services are build upon the availability and reliability of the AWS Global Infrastructure.
+  - Managed services are build upon the availability and reliability of the AWS Global Infrastructure
 
 - **Performance**
 
-  - CloudFront Distribution provides caching and fast content delivery.
+  - CloudFront Distribution provides caching and fast content delivery
   - AWS Lambda scales automatically to meet demands
 
 - **Cost Optimization**
 
-  - Serverless provisioning costs much less than a server-based solution.
+  - Serverless provisioning costs much less than a server-based solution
 
 - **DevOps**
 
