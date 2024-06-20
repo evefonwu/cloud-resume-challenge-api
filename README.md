@@ -2,13 +2,13 @@
 
 This is the **API** of the **_Cloud Resume Challenge_**
 
-UPDATE:
-
-- Use GitHub Action Secrets instead for values such as the API URL and GitHub Action OIDC IAM Role ARN.
-- Removed static values such as the S3 bucket name from the codebase.
-
 - [API repo](https://github.com/evefonwu/cloud-resume-challenge-api)
 - [Client repo](https://github.com/evefonwu/cloud-resume-challenge-client)
+
+UPDATE:
+
+- Updated to use GitHub Action Secrets for values such as the API URL and GitHub Action OIDC IAM Role ARN.
+- Removed other static values such as the S3 bucket name from the codebase.
 
 ## Project Overview
 
